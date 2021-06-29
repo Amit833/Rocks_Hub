@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { validateSchema } = require("../middleware/validation");
 
 const {
   getUser,
@@ -10,7 +11,7 @@ const {
 } = require("../controllers/usersControllers");
 
 //users
-router.route("/").get(getUsers).post(addUser);
+router.route("/").get(getUsers).post(validateSchema, addUser);
 router.route("/:id").get(getUser).put(updateUser).delete(deleteUser);
 
 module.exports = router;

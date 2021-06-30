@@ -12,20 +12,18 @@ let transporter = nodemailer.createTransport({
 });
 
 exports.sendVerificationEmail = async (user) => {
-  // Setup your email options
   const mailOptions = {
     from: env.email,
-    to: "adin23855@gmail.com",
-    // to: user.email,
-    subject: "Account Verification - WHATEVER TODO CORP",
-    // text: `Heyyyyy ${user.firstName}`,
+    to: user.email,
+    subject: "Account Verification - WHATEVER finrocks CORP",
+    text: `Heyyyyy`,
     html: verificationEmailTemplate(user),
   };
 
   try {
     // Shoot the email
     await transporter.sendMail(mailOptions);
-    console.log(`Send verification email to user ${user.fullName}`);
+    console.log(`Send verification email to user ${user.firstName}`);
   } catch (error) {
     console.log(error);
   }

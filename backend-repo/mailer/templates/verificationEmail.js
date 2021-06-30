@@ -1,7 +1,7 @@
 const env = require("../../config/config");
 
 exports.verificationEmailTemplate = (user) => {
-  return `<h4>Welcome to the Whatever finrocks hub Corporation</h4>
-    <p>Please verify you account using the following lonk link</p>
-    <a target="_blank" href="${env.frontendOrigin}/users/">${env.frontendOrigin}/users/</a>`;
+  return `<h2>Welcome to  finrocks hub Corporation</h2>
+    <p>Congratulations! You had completed the first Step</p>
+    <a target="_blank" href="${env.frontendOrigin}">Go to Our Home page</a>`;
 };

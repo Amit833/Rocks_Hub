@@ -16,6 +16,7 @@ const validateSchema = (req, res, next) => {
         )
       ),
     location: Joi.string(),
+    role: Joi.string(),
   });
 
   const { error, value } = schema.validate(data);

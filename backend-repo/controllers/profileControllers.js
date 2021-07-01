@@ -1,4 +1,5 @@
 const Profile = require("../models/Profile");
+const Education = require("../models/Education");
 
 exports.addProfile = async (req, res, next) => {
   const info = req.body;
@@ -13,8 +14,6 @@ exports.addProfile = async (req, res, next) => {
 exports.getProfiles = async (req, res, next) => {
   try {
     const profiles = await Profile.find();
-    //   .select("-__v")
-    //   .populate("education", "school");
     res.send(profiles);
   } catch (err) {
     next(err);
@@ -24,7 +23,9 @@ exports.getProfiles = async (req, res, next) => {
 exports.getProfile = async (req, res, next) => {
   const { id } = req.params;
   try {
-    const profile = await Profile.findById(id);
+    const profile = await Profile.findById(id)
+      .populate({ path: "employment" })
+      .populate("education");
     res.json(profile);
   } catch (err) {
     next(err);

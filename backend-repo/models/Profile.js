@@ -13,6 +13,8 @@ const ProfileSchema = new Schema(
     },
     languages: [{ type: String, required: true }],
     education: { type: Schema.Types.ObjectId, ref: "Education" },
+    employment: { type: Schema.Types.ObjectId, ref: "Employment" },
+
     past_experience: { type: String, required: true },
     hourly_rate: { type: String, required: true },
   },

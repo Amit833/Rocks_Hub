@@ -7,7 +7,7 @@ const EducationSchema = new Schema(
     degree: [{ type: String, required: true }],
     date_attended: { type: String },
     date_end: { type: String },
-    description: [{ type: String, required: true }],
+    description: { type: String, required: true },
   },
   {
     versionKey: false,

@@ -8,6 +8,7 @@ const usersRouter = require("./routes/usersRouter");
 const authRouter = require("./routes/authRouter");
 const profileRouter = require("./routes/profileRouter");
 const educationRouter = require("./routes/educationRouter");
+const employmentRouter = require("./routes/employmentRouter");
 
 // connect to MongoDB. For now I just use my database. Later on we can change it
 require("./helpers/db-connection");
@@ -31,6 +32,7 @@ app.use("/users", usersRouter);
 app.use("/login", authRouter);
 app.use("/profile", profileRouter);
 app.use("/education", educationRouter);
+app.use("/employment", employmentRouter);
 
 // Error Handling
 app.use(function errorHandler(err, req, res, next) {

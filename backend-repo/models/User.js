@@ -11,6 +11,7 @@ const UserSchema = new Schema(
     email: { type: String, required: true },
     password: { type: String, required: true },
     location: { type: String, required: true },
+    emailVerificationToken: { type: String, required: true },
     emailIsVerified: { type: Boolean, default: false },
     role: {
       type: String,
@@ -61,7 +62,6 @@ UserSchema.methods.generateAuthToken = function () {
 // Generate token method
 UserSchema.methods.generateEmailVerifToken = function () {
   const user = this;
-  // additionally making sure, the JWT ticket itself will expire at some point (in this case in 3 hours)
   const token = jwt
     .sign({ _id: user._id.toString(), email: user.email }, env.jwt_key, {
       expiresIn: "120h",

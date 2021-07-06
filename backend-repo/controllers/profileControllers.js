@@ -1,10 +1,20 @@
 const Profile = require("../models/Profile");
 const Education = require("../models/Education");
+const { auth } = require("../middleware/authentication");
+const { addEducation } = require("./educationControllers");
+const User = require("../models/User");
 
 exports.addProfile = async (req, res, next) => {
   const info = req.body;
+  // const userId = req.user._id; // I try to make relationship but not working
+  const userId = req.user;
+
+  console.log("userId", userId);
   try {
-    const profiles = await Profile.create(info);
+    const profiles = await Profile.create({
+      ...info,
+      user: userId,
+    });
     res.json(profiles);
   } catch (err) {
     next(err);

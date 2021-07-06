@@ -79,7 +79,8 @@ exports.verifyUserAccount = async (req, res) => {
       { emailIsVerified: true },
       { new: true }
     );
-    res.json({ message: `Your user (${req.user.email}) has been validated.` });
+    res.json({ message: `Your email (${req.user.email}) has been validated.` });
+    console.log("user email is verified");
   } catch (error) {
     next(error);
   }

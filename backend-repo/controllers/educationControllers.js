@@ -4,6 +4,7 @@ exports.addEducation = async (req, res, next) => {
   const info = req.body;
   try {
     const educations = await Education.create(info);
+    req.body.educationId = educations._id;
     res.json(educations);
   } catch (err) {
     next(err);

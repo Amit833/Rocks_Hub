@@ -28,7 +28,7 @@ const {
 router.route("/").get(getProfiles).post(addProfile);
 router.route("/:id").get(getProfile).put(updateProfile).delete(deleteProfile);
 
-router.route("/:id/education").get(getEducation).post(addEducation);
+router.route("/:id/:education").get(getEducation).post(addEducation);
 router.route("/:id/employment").get(getEmployment).post(addEmployment);
 
 module.exports = router;

@@ -12,7 +12,7 @@ const ProfileSchema = new Schema(
       required: true,
     },
     languages: [{ type: String, required: true }],
-    user: { type: Schema.Types.ObjectId, ref: "Education" },
+    user: { type: Schema.Types.ObjectId, ref: "User" },
     education: { type: Schema.Types.ObjectId, ref: "Education" },
     employment: { type: Schema.Types.ObjectId, ref: "Employment" },
 

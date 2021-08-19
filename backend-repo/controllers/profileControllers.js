@@ -7,15 +7,15 @@ const User = require("../models/User");
 exports.addProfile = async (req, res, next) => {
   const info = req.body;
   // const userId = req.user._id; // I try to make relationship but not working
-  const userId = req.user;
+  const userId = req.params;
 
   console.log("userId", userId);
   try {
-    const profiles = await Profile.create({
-      ...info,
-      user: userId,
-    });
-    res.json(profiles);
+    // const profiles = await Profile.create({
+    //   ...info,
+    //   user: userId,
+    // });
+    // res.json(profiles);
   } catch (err) {
     next(err);
   }

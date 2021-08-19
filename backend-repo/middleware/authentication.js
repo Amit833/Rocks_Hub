@@ -15,6 +15,7 @@ exports.auth = async (req, next) => {
 
     // if the token is valid
     req.user = verifyUser;
+    console.log("verifiedUser", verifyUser);
     next();
   } catch (error) {
     next(customError("can not verify!", 401));
